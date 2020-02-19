@@ -1,7 +1,7 @@
 # Item show
 
 
-首页：  
+*首页：*  
 
 ![home](https://github.com/GWJ1713797993/--/blob/master/images/1.GIF)  
 
@@ -12,7 +12,7 @@ https://github.com/GWJ1713797993/--/blob/master/images/1.GIF
 我是分割线<------------------------------------------------------------>我是分割线  
 
 
-榜单页：  
+*榜单页：*  
 
 ![list](https://github.com/GWJ1713797993/--/blob/master/images/2.GIF)  
 
@@ -23,7 +23,7 @@ https://github.com/GWJ1713797993/--/blob/master/images/2.GIF
 我是分割线<------------------------------------------------------------>我是分割线  
 
 
-个人中心页：  
+*个人中心页：*  
 
 ![my](https://github.com/GWJ1713797993/--/blob/master/images/3.GIF)  
 
@@ -34,7 +34,7 @@ https://github.com/GWJ1713797993/--/blob/master/images/3.GIF
 我是分割线<------------------------------------------------------------>我是分割线  
 
 
-榜单详情页页：  
+*榜单详情页：  *
 
 ![home](https://github.com/GWJ1713797993/--/blob/master/images/4.GIF)  
 
@@ -45,7 +45,7 @@ https://github.com/GWJ1713797993/--/blob/master/images/4.GIF
 我是分割线<------------------------------------------------------------>我是分割线  
 
 
-首页详情：  
+*首页详情：*  
 
 ![home](https://github.com/GWJ1713797993/--/blob/master/images/5.GIF)  
 ![home](https://github.com/GWJ1713797993/--/blob/master/images/6.GIF)  
@@ -58,11 +58,15 @@ https://github.com/GWJ1713797993/--/blob/master/images/6.GIF
 我是分割线<------------------------------------------------------------>我是分割线  
 
 
-列表页详情：  
+*列表页详情：*  
 
 ![home](https://github.com/GWJ1713797993/--/blob/master/images/7.GIF)  
 
-说明：点击查看更多，同样使用路由跳转
+说明：点击查看更多，同样使用路由跳转  
+
 （这是列表页详情图片链接）
 https://github.com/GWJ1713797993/--/blob/master/images/7.GIF  
 我是分割线<------------------------------------------------------------>我是分割线  
+
+
+*总结：*该项目的数据为静态数据，存储在app.js文件下，使用了微信小程序的一些基础组件，还有weui的一些组件，比较简单，只是作为个人的第一个小程序作品，谢谢观赏！
