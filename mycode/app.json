@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/list/list",
+    "pages/my/my",
+    "pages/details/details",
+    "pages/tables/tables",
+    "pages/recommend/recommend"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4ec164",
+    "navigationBarTitleText": "荐书影音",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "./image/home_0.jpg",
+      "selectedIconPath": "./image/home_1.jpg"
+    },
+    {
+      "pagePath":"pages/list/list",
+      "text":"榜单",
+      "iconPath": "./image/list_0.jpg",
+      "selectedIconPath": "./image/list_1.jpg"
+    },
+    {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "./image/my_0.jpg",
+      "selectedIconPath": "./image/my_1.jpg"
+    }]
+  }
+}

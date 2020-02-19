@@ -1,0 +1,48 @@
+<!--pages/my/my.wxml-->
+<!-- 个人中心顶部背景 start -->
+<view class="my_bg">
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+  <view style="display:inline-block;margin:0 auto;" wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="userinfo-nickname" style="text-align:center;">{{userInfo.nickName}}</view>
+  </view>
+</view>
+<!-- 个人中心顶部背景 end -->
+
+<!-- 个人中心列表 start -->
+<view class="my_list">
+  <view class="weui-cell weui-cell_access" style="padding-top:10rpx;padding-bottom:10rpx;">
+      <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle;font-weight: bold;">我的书影音</view>
+      </view>
+      <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size:24rpx;">查看</view>
+  </view>
+  <view class="list">
+     <view wx:for="{{data}}" wx:key="index" class="weui-cell weui-cell_access" style="overflow:hidden; vertical-align: middle;">
+          <view class="weui-cell__bd">
+              <image src="{{item.src}}" style="width:50rpx;height:50rpx;opacity: 0.7;"></image>
+              <view style="display: inline-block;padding-left:10px;font-size:12px;">
+                <view>{{item.name + "分析"}}</view>
+                <view style="color:#666;">
+                  <text style="font-size:18px;margin-right:5px;">0</text>{{item.unit + "过"}}
+                </view>
+              </view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access" style="">
+            <view class="tip">
+              <view>{{item.tip}}</view>
+              <view>{{"开启"+item.name+"分析"}}</view>
+            </view>
+            <view class="start" type="primary">立即开启</view>
+          </view>
+      </view>
+  </view>
+</view>
+
+<!-- 个人中心列表 end -->
+
+<!-- 个人中心页脚 start -->
+<view class="weui-footer weui-footer_fixed-bottom">
+    <view class="weui-footer__text">-版本1.0-</view>
+</view>
+<!-- 个人中心页脚 end -->

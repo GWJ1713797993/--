@@ -1,0 +1,95 @@
+/* pages/list/list.wxss */
+.list_box{
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+/* .card  statr */
+.card{
+  width: 100%;  
+  padding: 20rpx;
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.card::after{
+  content: "";
+  background-image: url("http://gwj1713797993.gz01.bdysite.com/image/电影/背景1.jpg");
+  background-size: 100%;
+  position: absolute;
+  border-radius: 5px;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+.card .title{
+  color: white;
+  font-size: 48rpx;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 20rpx;
+}
+.card .cover{
+  position: relative;
+  display: flex;
+  align-items:center;
+}
+.card .cover image{
+  width: 130rpx;
+  height: 180rpx;
+  border-radius: 5rpx;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+/* card end */
+/* row start */
+.row{
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}
+.row .left{
+  width:25%;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 5px;
+}
+.row .left image{
+  width:150rpx;
+  height:150rpx;
+  position: relative;
+  z-index: 1;
+}
+.row .left image text{
+  /* display: inline-block; */
+  color: white;
+  font-size: 36rpx;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  z-index: 2;
+}
+.row .right{
+  width:75%;
+  display: flex;
+  align-items:center;
+}
+.row .right .rank{
+  width: 100%;
+  box-shadow: 2px 0px 2px 1px #ccc;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  font-size: 12px;
+}
+.row .right .rank text{
+  color: #FFA500;
+  font-size: 10px;
+  margin-left: 5px;
+}
+/* row end */

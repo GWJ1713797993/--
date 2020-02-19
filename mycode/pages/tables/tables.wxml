@@ -1,0 +1,51 @@
+<!--pages/tables/tables.wxml-->
+<view class="main">
+  <view class="ul">
+      <view class="li" wx:for='{{data.list}}' wx:key="index">
+        <view class="box">
+          <image src="{{item.src}}"></image>
+          <view class="title">{{item.name}}</view>
+          <view class="star" wx:if="{{(item.grade/10)>=0.9}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.8}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.6}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.4}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:else>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+        </view>
+      </view>
+  </view>
+</view>

@@ -1,0 +1,241 @@
+<!--pages/details/details.wxml-->
+<view class=".main">
+  <!-- 头部信息 -->
+  <view class="header">
+    <view class="card">
+        <image mode="widthFix" src="{{_this_data.src}}"></image>
+        <view class="information">
+          <text class="title">{{_this_data.name}}</text>
+          <view class="star" wx:if="{{(_this_data.grade/10)>=0.9}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">
+            {{_this_data.grade}}
+            </text>
+          </view>
+          <view class="star" wx:elif="{{(_this_data.grade/10)>0.8}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="14"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">
+            {{_this_data.grade}}
+            </text>
+          </view>
+          <view class="star" wx:elif="{{(_this_data.grade/10)>0.6}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="14"></mp-icon>
+           <text style="font-size:20rpx;margin-left:5rpx;color:#666;">
+            {{_this_data.grade}}
+            </text>
+          </view>
+          <view class="star" wx:elif="{{(_this_data.grade/10)>0.4}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="14"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">
+            {{_this_data.grade}}
+            </text>
+          </view>
+          <view class="star" wx:else>
+            <mp-icon type="field" color="#FFA500"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="14"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="14"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">
+            {{_this_data.grade}}
+            </text>
+          </view>
+          <text class="classify">
+            {{_this_data.classify}}
+          </text>
+          <view class="operation">
+            <view class="btn">
+            <mp-icon type="outline" color="#FFA500"icon="like" size="16"></mp-icon>
+            想看</view>
+            <view class="btn">
+            <mp-icon type="outline" color="#FFA500"icon="star" size="16"></mp-icon>
+            看过</view>
+          </view>
+        </view>
+    </view>
+  </view>
+  <!-- 简介 -->
+  <view class="intro">
+    <text>简介</text>
+    <view class="content" style="-webkit-line-clamp: {{row}};">{{_this_data.intro}}</view>
+    <view class="btn">
+        <text bindtap="showfun" wx:if="{{row == 4}}">展开</text>
+        <text bindtap="showfun" wx:if="{{row == 0}}">收起</text>
+    </view>
+  </view>
+  <!-- 作品组成、演员 -->
+  <view class="constitute" wx:if="{{rowid != 4}}">
+    <text>影人</text>
+    <view class="content">
+      <scroll-view class="figure" scroll-x="true">
+        <view class="box" wx:for="{{12}}" wx:key="index">
+          <image mode="widthFix" src="../../image/pohto.jpg"></image>
+          <view class="name">xxx</view>
+          <view class="duty">演员</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 评论 -->
+  <view class="comment">
+    <view class="short">
+        <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__bd">
+                <view style="display:inline-block;vertical-align:middle;font-weight:bold;">
+                  短评
+                </view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size:12px;font-weight: bold;">全部9999+</view>
+        </view>
+        <view class="card" wx:for="{{3}}" wx:key="index">
+          <view class="user_content">
+            <image mode="widthFix" src="../../image/timg.jpg"></image>
+            <view class="user">
+              <view class="user_name">乌鸦坐飞机</view>
+              <view class="star">
+                <mp-icon type="field" color="#FFA500"icon="star" size="10"></mp-icon>
+                <mp-icon type="field" color="#FFA500"icon="star" size="10"></mp-icon>
+                <mp-icon type="field" color="#FFA500"icon="star" size="10"></mp-icon>
+                <mp-icon type="field" color="#FFA500"icon="star" size="10"></mp-icon>
+                <mp-icon type="field" color="#FFA500"icon="star" size="10"></mp-icon>
+                <text class="time">2019年12月20日</text>
+              </view>
+            </view>
+          </view>
+          <view class="content">
+            1、使影片形成一种“动”的美感。
+            2、避免呆板僵化。
+            3、增加了影片真实感。运动能制造成强烈的“视觉刺激”。
+            4、摄影机的运动是实现“长镜头的效果”的重要手段而长镜头效果又可以使影片具有纪 实主义作品的美学特征和艺术魅力。
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__bd">
+                <view style="display:inline-block;vertical-align:middle;font-weight:bold;">
+                  查看全部短评
+                </view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size:12px;"></view>
+        </view>
+    </view>
+  </view>
+  <!-- 推荐 -->
+  <view class="recommend" wx:if="{{rowid != 4}}">
+    <text style="font-weight: bold;">喜欢这部电影的人也喜欢</text>
+    <view class="content">
+      <scroll-view scroll-x="true" class="recommend_list">
+        <view class="box" wx:for="{{8}}" wx:key="index">
+          <image mode="widthFix" src="http://gwj1713797993.gz01.bdysite.com/image/电影/叶问4.jpg"></image>
+          <view class="title">叶问4</view>
+          <view class="star" wx:if="{{(item.grade/10)>=0.9}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.8}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.6}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.4}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:else>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="recommend" wx:if="{{rowid == 4}}">
+    <text style="font-weight: bold;">喜欢这本书的人也喜欢</text>
+    <view class="content">
+      <scroll-view scroll-x="true" class="recommend_list">
+        <view class="box" wx:for="{{8}}" wx:key="index">
+          <image mode="widthFix" src="http://gwj1713797993.gz01.bdysite.com/image/书/活着.jpg"></image>
+          <view class="title">活着</view>
+          <view class="star" wx:if="{{(item.grade/10)>=0.9}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.8}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.6}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.4}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:else>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

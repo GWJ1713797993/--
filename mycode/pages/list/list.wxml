@@ -1,0 +1,24 @@
+<!--pages/list/list.wxml-->
+<view class="list_box">
+  <view class="card" bindtap="examinefun">
+    <view class="title">一周口碑电影榜</view>
+    <view class="cover">
+      <image style="z-index:9" src="http://gwj1713797993.gz01.bdysite.com/image/电影/肖申克的救赎.jpg"></image>
+      <image style="left:-10px;z-index:2" src="http://gwj1713797993.gz01.bdysite.com/image/电影/误杀.jpg"></image>
+      <image style="z-index:1;left:-20px" src="http://gwj1713797993.gz01.bdysite.com/image/电影/小丑.jpg"></image>
+      <text style="color:#ccc;font-size:18px;">+10</text>
+    </view>
+  </view>
+  <view class="row" bindtap="examinefun" wx:for="{{list}}" wx:key="item">
+    <view class="left" style="background:{{item.color}}">
+    <image src="{{item.src}}"><text>{{item.title}}</text></image>
+    </view>
+    <view class="right">
+      <view class="rank">
+        <view wx:for="{{item.data}}" wx:key="index">{{(index+1)+"."+item.name}}
+          <text>{{item.grade}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

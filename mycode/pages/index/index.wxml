@@ -1,0 +1,160 @@
+<!--index.wxml-->
+<!-- 首页头部搜索栏 -->
+<view class="home_search">
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+      <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>实时搜索文本</view>
+        </view>
+      </navigator>
+      <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>实时搜索文本</view>
+        </view>
+      </navigator>
+      <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>实时搜索文本</view>
+        </view>
+      </navigator>
+      <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>实时搜索文本</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<!-- 首页主体 -->
+<view class="home_body">
+  <view class="row" wx:for="{{data}}" wx:key="index" bindtap="click" data-rowId="{{index}}">
+    <view class="text">
+      <view style="float:left;">{{item.title}}</view>
+      <view  data-rowId="{{index}}" catchtap="morefun" style="float:right;color:#4ec164;">查看更多
+        <mp-icon icon="arrow" color="#4ec164" size="{{12}}"></mp-icon>
+      </view>
+    </view>
+    <view class="content">
+      <scroll-view class="content_cinema" scroll-x="true">
+        <view class="box" wx:for="{{item.list}}" wx:key="index" bindtap="clickfun" data-id="{{index}}">
+          <image src="{{item.src}}"></image>
+          <view class="title">{{item.name}}</view>
+          <view class="star" wx:if="{{(item.grade/10)>=0.9}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.8}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.6}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.4}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:else>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 音乐推荐 -->
+  <view class="row">
+    <view class="text">
+      <view style="float:left;">热门单曲榜</view>
+      <view style="float:right;color:#4ec164;">查看更多
+        <mp-icon icon="arrow" color="#4ec164" size="{{12}}"></mp-icon>
+      </view>
+    </view>
+    <view class="content">
+      <scroll-view class="content_cinema" scroll-x="true">
+        <view class="box" wx:for="{{music}}" wx:key="item">
+          <image src="{{item.src}}" style="width:150rpx;height:150rpx;"></image>
+          <view class="title">{{item.name}}</view>
+          <view class="star" wx:if="{{(item.grade/10)>=0.9}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.8}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.6}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:elif="{{(item.grade/10)>0.4}}">
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+          <view class="star" wx:else>
+            <mp-icon type="field" color="#FFA500"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <mp-icon type="field" color="#ccc"icon="star" size="12"></mp-icon>
+            <text style="font-size:20rpx;margin-left:5rpx;color:#666;">{{item.grade}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

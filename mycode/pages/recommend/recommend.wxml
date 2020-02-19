@@ -1,0 +1,83 @@
+<!--pages/recommend/recommend.wxml-->
+<view class="main">
+  <view class="header">
+    <image mode="aspectFit" src="http://gwj1713797993.gz01.bdysite.com/image/电影/file-1543460329.jfif"></image>
+  </view>
+  <view class="list">
+    <view class="li" wx:for="{{data}}" wx:key="index">
+      <view class="box">
+        <view class="rank">{{"No."+(index+1)}}</view>
+        <view class="card">
+          <view class="left">
+              <image mode="widthFix" src="{{item.src}}"></image>
+              <view class="information">
+                <text class="title">{{item.name}}</text>
+                <view class="star" wx:if="{{(item.grade/10)>=0.9}}">
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <text style="font-size:24rpx;margin-left:5rpx;color:#666;">
+                  {{item.grade}}
+                  </text>
+                </view>
+                <view class="star" wx:elif="{{(item.grade/10)>0.8}}">
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#ccc" icon="star" size="16"></mp-icon>
+                  <text style="font-size:24rpx;margin-left:5rpx;color:#666;">
+                  {{item.grade}}
+                  </text>
+                </view>
+                <view class="star" wx:elif="{{(item.grade/10)>0.6}}">
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#ccc" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#ccc" icon="star" size="16"></mp-icon>
+                  <text style="font-size:24rpx;margin-left:5rpx;color:#666;">
+                  {{item.grade}}
+                  </text>
+                </view>
+                <view class="star" wx:elif="{{(item.grade/10)>0.4}}">
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#ccc" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#ccc" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#ccc" icon="star" size="16"></mp-icon>
+                  <text style="font-size:24rpx;margin-left:5rpx;color:#666;">
+                  {{item.grade}}
+                  </text>
+                </view>
+                <view class="star" wx:else>
+                  <mp-icon type="field" color="#FFA500" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#ccc" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#ccc" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#ccc" icon="star" size="16"></mp-icon>
+                  <mp-icon type="field" color="#ccc" icon="star" size="16"></mp-icon>
+                  <text style="font-size:24rpx;margin-left:5rpx;color:#666;">
+                  {{item.grade}}
+                  </text>
+                </view>
+                <view class="classify">
+                  {{item.classify}}
+                </view>
+              </view>
+          </view>
+          <view class="right">
+            <view class="btn">
+              <mp-icon type="outline" color="#FFA500" icon="star" size="16"></mp-icon>
+              <text>看过</text>
+            </view>
+          </view>
+        </view>
+        <view class="intro">
+          <text>{{item.intro}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
